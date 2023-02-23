@@ -2,6 +2,17 @@
 
 let numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?",2); // создаём опрос пользователя
 
+if (numberOfFilms<=10){                                             // проверяем ввод 
+    alert('Просмотренно довольно мало фильмов');
+} else if(30<numberOfFilms>>10){
+    alert('Вы класический зритель')
+} else if(numberOfFilms>30){
+    alert('Вы киноман');
+} else {
+    alert('Произошла ошибка')
+}
+
+
 let personalMovieDB = {                                             // обьект для хранения данных о пользователе
     count : numberOfFilms,                                          // количество фильмов
     movies : {},                                                    // фильмы
@@ -10,12 +21,27 @@ let personalMovieDB = {                                             // обье�
     privat : false   
 };
 
-let film1 = prompt("Один из последних просмотренных фильмов?", 'matrix');
-let gradeFilm1 = prompt("На сколько оцените его?", 8);
-let film2 = prompt("Один из последних просмотренных фильмов?", 'logan');
-let gradeFilm2 = prompt("На сколько оцените его?", 6);
+let film;
+let grade;
 
-personalMovieDB.movies[film1] = gradeFilm1;
-personalMovieDB.movies[film2] = gradeFilm2;
+let i=0;         
+while(i<4){                                                         // опрос о фильах  и оценках к ним
 
-console.log(personalMovieDB.movies);
+    film = prompt("Один из последних просмотренных фильмов?", 'matrix');
+    if (film==null || film.length>50 || film===''){
+        continue
+    } else{
+        i++;
+    }
+    grade = prompt("На сколько оцените его?", 8);
+    if (grade==null || grade.length>50 || grade===''){
+        continue
+    } else{
+        personalMovieDB.movies[film] = grade;
+        i++;
+    }
+
+
+}
+
+console.log(personalMovieDB.movies);  // Смотрим что получилось
