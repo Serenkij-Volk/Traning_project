@@ -1,10 +1,10 @@
 "use sctrict";
 
-let numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?",2); // создаём опрос пользователя
+const numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?",2); // создаём опрос пользователя
 
 if (numberOfFilms<=10){                                             // проверяем ввод 
     alert('Просмотренно довольно мало фильмов');
-} else if(30<numberOfFilms>>10){
+} else if(numberOfFilms>10 && numberOfFilms<30){
     alert('Вы класический зритель')
 } else if(numberOfFilms>30){
     alert('Вы киноман');
@@ -19,7 +19,7 @@ let personalMovieDB = {                                             // обье�
     actors : {},
     geners : [],
     privat : false   
-};
+}
 
 let film;
 let grade;
@@ -44,4 +44,4 @@ while(i<4){                                                         // опро�
 
 }
 
-console.log(personalMovieDB.movies);  // Смотрим что получилось
+console.log(personalMovieDB);  // Смотрим что получилось
