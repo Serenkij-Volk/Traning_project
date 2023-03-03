@@ -62,3 +62,23 @@ let result = '';
  }
 
  console.log(result);
+
+
+ function getMathResult(base,count) {
+    let string='';
+    let num=0;
+    for (let i =0;i<=count;i++){
+        num+=base;
+        string+=num;
+        if (i=count){
+            continue
+        }else {
+            string+="---";
+        }
+        console.log(string);
+    }
+    return string;
+
+}
+
+console.log(getMathResult(3,10));
