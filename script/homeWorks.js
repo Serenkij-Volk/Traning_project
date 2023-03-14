@@ -1,3 +1,5 @@
+"use sctrict";
+
 
 // Задачка 24,1
 for(let i=5;i<11;i++){
@@ -109,7 +111,7 @@ console.log(calculateVolumeAndArea(5));
 function getCoupeNumber(NPlace) {
     
     if (NPlace==String || NPlace<=0 || !Number.isInteger(NPlace)){   
-           
+
         return "Ошибка. Проверьте правильность введенного номера места";
 
     }else {
@@ -139,4 +141,128 @@ function getCoupeNumber(NPlace) {
     }
 }
 
-console.log(calculateVolumeAndArea(5));
+console.log(getCoupeNumber(33));
+
+
+// Задача на функции №7
+function getTimeFromMinutes(minutes) {
+    
+    if (minutes<0 || minutes==='' || !Number.isInteger(minutes)){        
+        return "Ошибка, проверьте данные"
+        
+    }else if (minutes===0) {        
+        return "Это 0 часов и 0 минут"
+        
+    }else if (minutes==60){        
+        return "Это 1 час и 0 минут"
+        
+    }else if (minutes<60){        
+        return 'Это 0 часов и'+minutes+' минут'
+        
+    }else if (minutes%60===0){        
+        let hours=minutes/60;        
+        return 'Это '+hours+' часов и 0 минут'
+        
+    }else if (!minutes%60===0){
+        if (minutes/60<5){
+
+        let hoursRounded=Math.round(minutes/60-minutes%60/60);                         
+        let minutesM=minutes%60;        
+        return 'Это '+hoursRounded+' часа и '+minutesM+' минут'
+
+        }else {
+
+        let hoursRounded=Math.round(minutes/60-minutes%60/60);                         
+        let minutesM=minutes%60;        
+        return 'Это '+hoursRounded+' часов и '+minutesM+' минут'
+
+        }
+        
+    }
+    
+}
+
+console.log(getTimeFromMinutes(209));
+
+
+// Задача на функции №8
+
+function findMaxNumber(a,b,c,d) {
+    
+   
+    if (!typeof(a)==="number" || typeof(a)==="string" || a===undefined){
+        return 0
+
+    }else if(!typeof(b)==="number" || typeof(b)==="string" || b===undefined){
+        return 0
+
+    }else if(!typeof(c)==="number" || typeof(c)==="string" || c===undefined){
+        return 0
+
+    }else if(!typeof(d)==="number" || typeof(d)==="string" || d===undefined){
+        return 0
+
+    }else {
+        return Math.max(a,b,c,d);
+    }
+}
+
+console.log(findMaxNumber(1,5,6.6,11));
+console.log(findMaxNumber(1,5,6));
+
+// Задача на функции №9
+
+function fib(x) {
+    let f='0 ';
+    let x1=1;
+    let x2=2;
+    
+    for (i=0;i<x;i++){
+        
+        x1+=x2;
+       
+        if (j=0;j<=x-1;j++){
+             f+=x1+' '+x2;
+        } 
+       
+    }
+    
+    
+}
+
+// Задача на функции №10
+
+function fib(a) {
+
+let x=[0,1,];
+let f='';
+
+if (!Number.isInteger(a) || a<0){    //!typeof(a)==="number" 
+    return ''
+}else if (a===1){
+    return 0
+}else {
+    for (i=0;i<a-2;i++){
+        x[i+2]=x[i]+x[i+1];   
+       }
+
+    for (j=0;j<a;j++){
+        if (j===a-1){
+            f+=x[j];
+        }else{
+
+            f+=x[j]+' ';
+        }
+
+       }
+     return f
+    }
+}
+
+console.log(fib(0));
+console.log(fib(1));
+console.log(fib('4'));
+console.log(fib(4));
+
+//console.log(typeof('4'));
+
