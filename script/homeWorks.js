@@ -240,13 +240,13 @@ let f='';
 if (!Number.isInteger(a) || a<0){    //!typeof(a)==="number" 
     return ''
 }else if (a===1){
-    return 0
+    return '0'
 }else {
-    for (i=0;i<a-2;i++){
+    for (let i=0;i<a-2;i++){
         x[i+2]=x[i]+x[i+1];   
        }
 
-    for (j=0;j<a;j++){
+    for (let j=0;j<a;j++){
         if (j===a-1){
             f+=x[j];
         }else{
@@ -262,7 +262,79 @@ if (!Number.isInteger(a) || a<0){    //!typeof(a)==="number"
 console.log(fib(0));
 console.log(fib(1));
 console.log(fib('4'));
-console.log(fib(4));
+console.log(fib(7));
 
 //console.log(typeof('4'));
 
+// Задание на работу с обьектами №10
+
+const personalPlanPeter = {
+    name: "Peter",
+    age: "29",
+    skills: {
+        languages: ['ru', 'eng'],
+        programmingLangs: {
+            js: '20%',
+            php: '10%'
+        },
+        exp: '1 month'
+    },
+    showAgeAndLangs: function (obj){
+        
+        let langs=[...obj.skills.languages].join(',').toUpperCase();
+        
+        
+        return `Мне ${obj.age} и я владею языками: ${langs}`
+        
+    }
+};
+
+// Задание на работу с обьектами №12
+
+console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
+
+
+function showExperience(plan) {
+
+    return plan.skills.exp
+
+}
+
+//console.log(showExperience(personalPlanPeter));
+
+// Задание на работу с обьектами №11
+
+function showProgrammingLangs(plan) {
+
+    let i=0;
+    let langs='';
+
+    for (key in plan.skills.programmingLangs){
+        i++;
+        langs+=`\nЯзык ${key} изучен на ${plan.skills.programmingLangs[key]}% `;
+        console.log(langs);
+    }
+    if (i===0){
+        return '';  
+    }else {
+     return langs;
+    }
+    
+}
+
+console.log(showProgrammingLangs(personalPlanPeter));
+
+
+// Задание на работу с обьектами №13
+
+
+const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+
+function standardizeStrings(arr) {
+    
+    let str=arr.join('/n').toLowerCase();
+    return str
+    
+}
+
+console.log(standardizeStrings(avoriteCities));
