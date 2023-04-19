@@ -217,11 +217,11 @@ function fib(x) {
     let x1=1;
     let x2=2;
     
-    for (i=0;i<x;i++){
+    for (let i=0;i<x;i++){
         
         x1+=x2;
        
-        if (j=0;j<=x-1;j++){
+        for (let j=0;j<=x-1;j++){
              f+=x1+' '+x2;
         } 
        
@@ -332,9 +332,76 @@ const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
 
 function standardizeStrings(arr) {
     
-    let str=arr.join('/n').toLowerCase();
-    return str
-    
+    let str=arr.join('\n').toLowerCase();
+    console.log(str);
+        
 }
 
-console.log(standardizeStrings(avoriteCities));
+// Задача на работу с массивами №14
+
+const someString = 'This is some strange string';
+
+function reverse(str) {
+
+    if (typeof(str)==="string"){
+
+    let newstr=[...str];
+    let reverse=[];
+    let j=str.length-1;
+    for (let i=0; i<str.length; i++){
+        reverse[i]=newstr[j];
+        j--;
+        
+    }
+
+    return reverse.join('')
+}else{
+
+    return "Ошибка"
+}
+
+}
+
+
+console.log(reverse(someString));
+console.log(reverse(42));
+
+// Задача на работу с массивами
+
+const baseCurrencies = ['USD', 'EUR'];
+const baseCurrencies2 = [];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+
+function availableCurr(arr, missingCurr) {
+    
+    
+    if (!typeof(arr)==="object" || arr===undefined ||arr.length===0 || arr[0]===''){
+        
+        return "Нет доступных валют"
+
+    }else{
+
+        let resultCurr='';
+        for (let key in arr){
+            
+            if (arr[key]===missingCurr){
+                
+                arr.splice(key,1);
+            }
+
+        }
+        
+        for (let j=0;j<arr.length;j++){
+
+            resultCurr+=arr[j]+'\n';
+        }
+    
+    return 'Доступные валюты:'+resultCurr 
+    }
+
+}
+
+console.log(availableCurr());
+console.log(availableCurr(baseCurrencies,'USD'));
+console.log(availableCurr(baseCurrencies2));
+console.log(availableCurr(additionalCurrencies,'CNY'));
