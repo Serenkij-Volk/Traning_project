@@ -67,11 +67,22 @@ let personalMovieDB = {                                             // обье�
   
   writeYourGenres: function (){
 
-    for (let i=1;i<=3;i++){
+    let gener;
+    askagain: for (let i=1;i<=3;i++){
                      
-        personalMovieDB.geners[i-1]=prompt(`Ваш любимы жанр под номером ${i}`);
+        gener=prompt(`Ваш любимы жанр под номером ${i}`);
+        //console.log(gener);
+        if (gener===null || gener===''){
+            i--;
+            console.log(i);
+            continue askagain;
+            }else{
+                personalMovieDB.geners[i-1]=gener;
+            }
 
-    }
+        }
+        personalMovieDB.geners.forEach (function (value,index){
+        console.log(`Любимый жанр ${index} - это ${value}`); } )
 },
 
 toggleVisibleMyDB: function (){
@@ -92,7 +103,6 @@ toggleVisibleMyDB: function (){
 //personalMovieDB.toggleVisibleMyDB();
 //personalMovieDB.showMyDB();
 
-personalMovieDB.start();
 personalMovieDB.writeYourGenres();
 
 
