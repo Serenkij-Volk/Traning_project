@@ -418,7 +418,7 @@ function sortStudentsByGroups(arr) {
 
     let newArr=[]; // контейнер для новый групп/массивов
 
-    let SortedArr=[...aarr.sort()];   // Сортируем массив по алфавиту // Деструктуризируем массив и присваеваем содержимое в новый массив 
+    let SortedArr=[...arr.sort()];   // Сортируем массив по алфавиту // Деструктуризируем массив и присваеваем содержимое в новый массив 
 
           //console.log(SortedArr);
 
@@ -427,7 +427,7 @@ function sortStudentsByGroups(arr) {
         let tempArr=[];
         for (let i=0; i<3; i++){
             tempArr.push(SortedArr[i]);
-            console.log(SortedArr[i]);
+            //console.log(SortedArr[i]);
             ;
         }
         for (let k=0; k<3; k++){
@@ -437,7 +437,7 @@ function sortStudentsByGroups(arr) {
         newArr.push(tempArr);
 }
 
-if (arr.length<9){
+if (arr.length<=9){
 
     newArr.push("Оставшиеся студенты: -");
     
