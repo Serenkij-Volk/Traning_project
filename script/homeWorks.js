@@ -366,7 +366,7 @@ function reverse(str) {
 console.log(reverse(someString));
 console.log(reverse(42));
 
-// Задача на работу с массивами
+// Задача №15 работа с массивами
 
 const baseCurrencies = ['USD', 'EUR'];
 const baseCurrencies2 = [];
@@ -405,3 +405,64 @@ console.log(availableCurr());
 console.log(availableCurr(baseCurrencies,'USD'));
 console.log(availableCurr(baseCurrencies2));
 console.log(availableCurr(additionalCurrencies,'CNY'));
+
+
+
+// Задача №16 продвинутая работа с масивами
+
+const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam', 'Somebody']; // 
+
+function sortStudentsByGroups(arr) {
+
+    //arr.sort(); 
+
+    let newArr=[]; // контейнер для новый групп/массивов
+
+    let SortedArr=[...aarr.sort()];   // Сортируем массив по алфавиту // Деструктуризируем массив и присваеваем содержимое в новый массив 
+
+          //console.log(SortedArr);
+
+    for (let j=0;j<3;j++){
+
+        let tempArr=[];
+        for (let i=0; i<3; i++){
+            tempArr.push(SortedArr[i]);
+            console.log(SortedArr[i]);
+            ;
+        }
+        for (let k=0; k<3; k++){
+            SortedArr.shift();
+            
+        }
+        newArr.push(tempArr);
+}
+
+if (arr.length<9){
+
+    newArr.push("Оставшиеся студенты: -");
+    
+    }else {
+        
+        let lastStr="Оставшиеся студенты: ";
+        for (let i=9;i<=(arr.length-1);i++){
+    
+            lastStr+=arr[i];
+
+            if (i===(arr.length-1)){
+                break;
+            }else{
+
+                lastStr+=', ';
+            }
+    
+        }
+        newArr.push(lastStr);
+    }
+
+// "Оставшиеся студенты: "
+return newArr;
+
+}
+
+console.log(sortStudentsByGroups(students));
+

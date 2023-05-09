@@ -107,6 +107,56 @@ personalMovieDB.writeYourGenres();
 
 
 
+const shoppingMallData = {
+    shops: [
+        {
+            width: 10,
+            length: 5
+        },
+        {
+            width: 15,
+            length: 7
+        },
+        {
+            width: 20,
+            length: 5
+        },
+        {
+            width: 8,
+            length: 10
+        }
+    ],
+    height: 5,
+    moneyPer1m3: 30,
+    budget: 50000
+}
+
+function isBudgetEnough(data) {
+    // вычисляем плошадь торгового центра
+    let S_mall=0;
+    for (let key in data.shops){
+        S_mall+=data.shops[key].width*data.shops[key].length;
+
+    }
+
+    let V_mall=0;
+
+    V_mall=S_mall*data.height;
+
+    let priceOfHeating=0;
+
+    priceOfHeating=V_mall*data.moneyPer1m3;
+
+    if (data.budget>=priceOfHeating){
+
+        return "Бюджета достаточно";
+    }else{
+        
+        return "Бюджета недостаточно"
+    }
+
+}
 
 
+console.log(isBudgetEnough(shoppingMallData))
 
